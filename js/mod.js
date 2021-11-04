@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "The Beginning...",
+	num: "0.1.1",
+	name: "Another layer?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+		- Bugfixes?<br>
+		- Added rebirth.`
 
 let winText = `So ... You were dedicated enough to do all the grinding? Well, let's just say ... GG.`
 
