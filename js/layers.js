@@ -1,14 +1,14 @@
-addLayer("m", {
-    name: "Multiplier", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "M", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("p", {
+    name: "Point", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#CC3333",
+    color: "#00FFFF",
     requires: new Decimal(5), // Can be a function that takes requirement increases into account
-    resource: "Multiplier", // Name of prestige currency
+    resource: "Points", // Name of prestige currency
     baseResource: "money", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -38,7 +38,7 @@ addLayer("r", {
     color: "#0088ff",
     requires: new Decimal(1000), // Can be a function that takes requirement increases into account
     resource: "Rebirth Points", // Name of prestige currency
-    baseResource: "Multiplier", // Name of resource prestige is based on
+    baseResource: "Points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.3, // Prestige currency exponent
