@@ -1,14 +1,14 @@
-addLayer("p", {
-    name: "Point", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+addLayer("g", {
+    name: "Generic Reset", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "GR", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
     color: "#00FFFF",
     requires: new Decimal(5), // Can be a function that takes requirement increases into account
-    resource: "Points", // Name of prestige currency
+    resource: "Generic Points", // Name of prestige currency
     baseResource: "money", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -22,7 +22,7 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "m", description: "M: Convert cash to Multiplier", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "g", description: "G: Convert cash to Generic Points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 })
@@ -30,7 +30,7 @@ addLayer("p", {
 addLayer("r", {
     name: "Rebirth", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "R", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
@@ -38,7 +38,7 @@ addLayer("r", {
     color: "#0088ff",
     requires: new Decimal(1000), // Can be a function that takes requirement increases into account
     resource: "Rebirth Points", // Name of prestige currency
-    baseResource: "Points", // Name of resource prestige is based on
+    baseResource: "Generic Points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.3, // Prestige currency exponent
@@ -51,7 +51,7 @@ addLayer("r", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "r", description: "R: Rebirth", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "r", description: "R: Rebirth for some Rebirth Points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 })
