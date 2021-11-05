@@ -45,6 +45,15 @@ addLayer("g", {
             description: "Further multiplies money gain.",
             cost: new Decimal(50),
         },
+        21: {
+            title: "Inception",
+            description: "Multiplies money by GP!",
+            cost: new Decimal(10000),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        }
     },
     layerShown(){return true}
 })
@@ -75,5 +84,14 @@ addLayer("r", {
     hotkeys: [
         {key: "r", description: "R: Rebirth for some Rebirth Points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    upgrades: {
+        11: {
+            title: "Money: Reborn",
+            description: "Multiplies your cash a little more.",
+            cost: new Decimal(1),
+        },
+
+    },
+
     layerShown(){return true}
 })
