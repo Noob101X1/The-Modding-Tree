@@ -7,7 +7,9 @@ addLayer("g", {
 		points: new Decimal(0),
     }},
     color: "#00FFFF",
-    requires: new Decimal(5), // Can be a function that takes requirement increases into account
+    
+    requires: new decimal(5),
+ // Can be a function that takes requirement increases into account
     resource: "Generic Points", // Name of prestige currency
     baseResource: "money", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -20,6 +22,7 @@ addLayer("g", {
         if (hasUpgrade('g', 23)) mult = mult.times(1.5)	
         if (hasUpgrade('g', 24)) mult = mult.times(2)	
         if (hasUpgrade('a', 11)) mult = mult.times(3)
+        if (hasUpgrade('r', 32)) mult = mult.times(upgradeEffect('r', 32))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -125,12 +128,37 @@ addLayer("r", {
         21: {
             title: "Overpowered?",
             description: "Gives rebirth an effect toward money!",
-            cost: new Decimal(200),
+            cost: new Decimal(50),
             effect() {
                 return player[this.layer].points.add(1).pow(0.2)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        },       
+        },
+        22: {
+            title: "One Rebirth",
+            description: "Increases the base of money by 1.",
+            cost: new Decimal(135),
+        },     
+        23: {
+            title: "Double Rebirth",
+            description: "Increases the base of money by 4.",
+            cost: new Decimal(200),
+        },  
+        31: {
+            title: "The Tree's Beginning",
+            description: "Multiplies GP gain by the log10 of RP.",
+            cost: new Decimal(500),
+            effect() {
+                return player[this.layer].points.log(10).add(1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+
+        },     
+        32: {
+            title: "The True Beginning...",
+            description: "Multiplies Advancements by 1.5.",
+            cost: new Decimal(1250),
+        },      
     },
 
     layerShown(){return true}

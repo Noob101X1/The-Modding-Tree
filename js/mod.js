@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.1",
-	name: "Another layer?",
+	num: "0.1.2",
+	name: "Advancements",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -43,6 +43,8 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('r', 22)) gain = gain.add(1)
+	if (hasUpgrade('r', 23)) gain = gain.add(4)
 	if (hasUpgrade('g', 11)) gain = gain.times(2)	
 	if (hasUpgrade('g', 12)) gain = gain.times(2)
 	if (hasUpgrade('g', 13)) gain = gain.times(3)
