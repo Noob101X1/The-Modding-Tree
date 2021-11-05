@@ -5,6 +5,7 @@ addLayer("g", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+
     }},
     color: "#00FFFF",
     
@@ -89,6 +90,7 @@ addLayer("r", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+
     }},
     color: "#0088ff",
     requires: new Decimal(1000), // Can be a function that takes requirement increases into account
@@ -171,6 +173,7 @@ addLayer("a", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+
     }},
     color: "#0088ff",
     requires: new Decimal(100000), // Can be a function that takes requirement increases into account
@@ -210,3 +213,4 @@ addLayer("a", {
 
     layerShown(){return true}
 })
+
