@@ -18,9 +18,9 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Bugfixes?<br>
-		- Added rebirth.`
+	<h3>v0.1.2</h3><br>
+		- Added advancements.<br>
+		- Added more upgrades.`
 
 let winText = `So ... You were dedicated enough to do all the grinding? Well, let's just say ... GG.`
 
@@ -48,9 +48,11 @@ function getPointGen() {
 	if (hasUpgrade('g', 13)) gain = gain.times(3)
 	if (hasUpgrade('g', 14)) gain = gain.times(4)
 	if (hasUpgrade('g', 24)) gain = gain.times(0.5)
+	if (hasUpgrade('g', 22)) gain = gain.times(10)
 	if (hasUpgrade('g', 21)) gain = gain.times(upgradeEffect('g', 21))
 	if (hasUpgrade('r', 11)) gain = gain.times(5)
 	if (hasUpgrade('r', 21)) gain = gain.times(upgradeEffect('r', 21))
+	if (hasUpgrade('a', 12)) gain = gain.times(8)
 	return gain
 }
 
