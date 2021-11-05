@@ -17,6 +17,9 @@ addLayer("g", {
         mult = new Decimal(1)
         if (hasUpgrade('r', 12)) gain = gain.times(2)	
         if (hasUpgrade('r', 13)) gain = gain.times(2)
+        if (hasUpgrade('g', 23)) gain = gain.times(1.5)	
+        if (hasUpgrade('g', 24)) gain = gain.times(2)	
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
