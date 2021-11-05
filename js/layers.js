@@ -15,6 +15,8 @@ addLayer("g", {
     exponent: 0.6, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('r', 12)) gain = gain.times(2)	
+        if (hasUpgrade('r', 13)) gain = gain.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -53,8 +55,24 @@ addLayer("g", {
                 return player[this.layer].points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        }
+        },
+        22: {
+            title: "Tenfold!",
+            description: "Decuples your cash gain!",
+            cost: new Decimal(50000),
+        },
+        23: {
+            title: "More GP?",
+            description: "Multiplies your GP gain by 1.5.",
+            cost: new Decimal(500000),
+        },
+        24: {
+            title: "Give and Take",
+            description: "Divides your money by 2, but multiplies your GP by 2.",
+            cost: new Decimal(2500000),
+        },
     },
+
     layerShown(){return true}
 })
 
@@ -90,7 +108,25 @@ addLayer("r", {
             description: "Multiplies your cash a little more.",
             cost: new Decimal(1),
         },
-
+        12: {
+            title: "Multiplying prestige layers?",
+            description: "What is this sorcery? Doubles your GP gain.",
+            cost: new Decimal(4),
+        },
+        13: {
+            title: "Another GP Upgrade",
+            description: "Doubles GP gain again.",
+            cost: new Decimal(12),
+        }, 
+        21: {
+            title: "Overpowered?",
+            description: "Gives rebirth an effect toward money!",
+            cost: new Decimal(200),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },       
     },
 
     layerShown(){return true}
