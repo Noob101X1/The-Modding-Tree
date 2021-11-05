@@ -53,7 +53,7 @@ addLayer("g", {
         21: {
             title: "Inception",
             description: "Multiplies money by GP!",
-            cost: new Decimal(10000),
+            cost: new Decimal(1000),
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
             },
@@ -62,17 +62,17 @@ addLayer("g", {
         22: {
             title: "Tenfold!",
             description: "Decuples your cash gain!",
-            cost: new Decimal(50000),
+            cost: new Decimal(7000),
         },
         23: {
             title: "More GP?",
             description: "Multiplies your GP gain by 1.5.",
-            cost: new Decimal(500000),
+            cost: new Decimal(65000),
         },
         24: {
             title: "Give and Take",
             description: "Divides your money by 2, but multiplies your GP by 2.",
-            cost: new Decimal(2500000),
+            cost: new Decimal(300000),
         },
     },
 
