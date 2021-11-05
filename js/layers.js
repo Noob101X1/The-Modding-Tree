@@ -24,6 +24,28 @@ addLayer("g", {
     hotkeys: [
         {key: "g", description: "G: Convert cash to Generic Points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    upgrades: {
+        11: {
+            title: "The beginning...",
+            description: "Doubles your money gain.",
+            cost: new Decimal(10),
+        },
+        12: {
+            title: "Another Ugrade",
+            description: "Doubles your money gain again.",
+            cost: new Decimal(15),
+        },
+        13: {
+            title: "Triplicator",
+            description: "Triples your money gain.",
+            cost: new Decimal(27),
+        },
+        14: {
+            title: "Extra Multiplication",
+            description: "Further multiplies money gain.",
+            cost: new Decimal(50),
+        },
+    },
     layerShown(){return true}
 })
 
@@ -38,7 +60,7 @@ addLayer("r", {
     color: "#0088ff",
     requires: new Decimal(1000), // Can be a function that takes requirement increases into account
     resource: "Rebirth Points", // Name of prestige currency
-    baseResource: "Generic Points", // Name of resource prestige is based on
+    baseResource: "money", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.3, // Prestige currency exponent
