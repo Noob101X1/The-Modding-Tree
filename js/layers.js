@@ -40,7 +40,7 @@ addLayer("g", {
             cost: new Decimal(10),
         },
         12: {
-            title: "Another Ugrade",
+            title: "Another Upgrade",
             description: "Doubles your money gain again.",
             cost: new Decimal(15),
         },
